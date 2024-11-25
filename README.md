@@ -4,4 +4,4 @@ Here is a demo video of the game:
 
 
 ## The Final BreadBoard
-![Description of the image](media/board and wires.jpg)
+![Description of the image](media/board_and_wires.jpg)
