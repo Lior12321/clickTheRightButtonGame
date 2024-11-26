@@ -6,7 +6,7 @@
 int lives = 5;
 unsigned long startTime; // the start time for every loop
 unsigned long timeout = 2400; // the maximum time bedore losing life
-boolean buttonPressed = false; //check if any botton pressed
+boolean bottonPressed = false; //check if any botton pressed
 int level = 1;
 
 void setup() {
@@ -224,7 +224,7 @@ void turnOffMicrocontroller(){
   digitalWrite(10, LOW);
     digitalWrite(11, LOW);
     digitalWrite(12, LOW);
-    //leds blink for end of the game
+    //leds blink to inform that the game ended
     for(int i = 0; i<4; i++){
       digitalWrite(10, HIGH);
       digitalWrite(11, HIGH);
@@ -257,24 +257,24 @@ void loop() {
 
   // save the time that the led turn on
   startTime = millis();
-  int correctButton;
+  int correctBotton;
   switch (randomNumber) {
     case 10:
       digitalWrite(11, LOW);
       digitalWrite(12, LOW);
-      correctButton = leftBotton;
+      correctBotton = leftBotton;
       break;
 
     case 11:
       digitalWrite(10, LOW);
       digitalWrite(12, LOW);
-      correctButton = midBotton;
+      correctBotton = midBotton;
       break;
 
     case 12:
       digitalWrite(10, LOW);
       digitalWrite(11, LOW);
-      correctButton = rightBotton;
+      correctBotton = rightBotton;
       break;
   }
 
@@ -284,16 +284,16 @@ void loop() {
       break;
     }
 
-    // Check button presses
+    // Check botton presses
     if (digitalRead(leftBotton) == HIGH || digitalRead(midBotton) == HIGH || digitalRead(rightBotton) == HIGH) {
-      if (digitalRead(correctButton) == HIGH) {
+      if (digitalRead(correctBotton) == HIGH) {
         digitalWrite(randomNumber, LOW);
         delay(100);
         break;
       }
       
       else {
-        lives--; // Deduct life only once for the wrong button press
+        lives--; // Deduct life only once for the wrong botton press
         break;
       }
     }
