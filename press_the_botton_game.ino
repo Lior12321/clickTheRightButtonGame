@@ -1,12 +1,11 @@
 #include <avr/sleep.h>
-#define leftBotton A5
-#define midBotton A4
-#define rightBotton A3
+#define leftButton A5
+#define midButton A4
+#define rightButton A3
 
 int lives = 5;
 unsigned long startTime; // the start time for every loop
 unsigned long timeout = 2400; // the maximum time bedore losing life
-boolean bottonPressed = false; //check if any botton pressed
 int level = 1;
 
 void setup() {
@@ -18,10 +17,10 @@ void setup() {
   digitalWrite(11, LOW);
   digitalWrite(12, LOW);
 
-  // 3 pins for 3 bottons
-  pinMode(leftBotton, INPUT);
-  pinMode(midBotton, INPUT);
-  pinMode(rightBotton, INPUT);
+  // 3 pins for 3 buttons
+  pinMode(leftButton, INPUT);
+  pinMode(midButton, INPUT);
+  pinMode(rightButton, INPUT);
  
   // 8 pins for the 7-segments:
   pinMode(2, OUTPUT); //middle
@@ -62,7 +61,7 @@ void setup() {
 
 
   //choose the level of the game
-  while(digitalRead(rightBotton) != HIGH){
+  while(digitalRead(rightButton) != HIGH){
     switch (level) {
       case 1:
         digitalWrite(2, LOW);
@@ -94,17 +93,17 @@ void setup() {
     }
 
     //wait to the player to choose the level he wants
-    while (digitalRead(leftBotton) == LOW && digitalRead(midBotton) == LOW && digitalRead(rightBotton) == LOW) {
+    while (digitalRead(leftButton) == LOW && digitalRead(midButton) == LOW && digitalRead(rightButton) == LOW) {
       delay(50);
-      if(digitalRead(leftBotton) == HIGH && level > 1){
+      if(digitalRead(leftButton) == HIGH && level > 1){
       level--;
       break;
       }
-      if(digitalRead(midBotton) == HIGH && level < 3){
+      if(digitalRead(midButton) == HIGH && level < 3){
         level++;
         break;
       }
-      if(digitalRead(rightBotton) == HIGH)
+      if(digitalRead(rightButton) == HIGH)
         break;
       }
     }
@@ -257,24 +256,24 @@ void loop() {
 
   // save the time that the led turn on
   startTime = millis();
-  int correctBotton;
+  int correctButton;
   switch (randomNumber) {
     case 10:
       digitalWrite(11, LOW);
       digitalWrite(12, LOW);
-      correctBotton = leftBotton;
+      correctButton = leftButton;
       break;
 
     case 11:
       digitalWrite(10, LOW);
       digitalWrite(12, LOW);
-      correctBotton = midBotton;
+      correctButton = midButton;
       break;
 
     case 12:
       digitalWrite(10, LOW);
       digitalWrite(11, LOW);
-      correctBotton = rightBotton;
+      correctButton = rightButton;
       break;
   }
 
@@ -284,16 +283,16 @@ void loop() {
       break;
     }
 
-    // Check botton presses
-    if (digitalRead(leftBotton) == HIGH || digitalRead(midBotton) == HIGH || digitalRead(rightBotton) == HIGH) {
-      if (digitalRead(correctBotton) == HIGH) {
+    // Check Button presses
+    if (digitalRead(leftButton) == HIGH || digitalRead(midButton) == HIGH || digitalRead(rightButton) == HIGH) {
+      if (digitalRead(correctButton) == HIGH) {
         digitalWrite(randomNumber, LOW);
         delay(100);
         break;
       }
       
       else {
-        lives--; // Deduct life only once for the wrong botton press
+        lives--; // Deduct life only once for the wrong Button press
         break;
       }
     }
