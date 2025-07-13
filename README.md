@@ -43,20 +43,22 @@ clickTheRightBottonGame/
 
 ## 🚀 How It Works
 
-1. The game lights up one of several LEDs at random.
-2. The user must press the corresponding button as quickly as possible.
-3. If correct – the game gives feedback (e.g., score or sound).
-4. If wrong or delayed – an error indication is shown.
-5. The game may keep track of score, reaction time, or rounds.
+1. The game starts by prompting the player to select a difficulty level.
+2. A countdown screen shows “3, 2, 1” before the game begins.
+3. The player starts with 5 lives.
+4. LEDs light up in sequence, and the player must press the correct corresponding button as quickly as possible.
+5. If the player is too slow or presses the wrong button, they lose one life.
+6. The game continues until all lives are lost, then it ends.
 
 ---
 
 ## 🔧 Hardware Used
 
-- 1× Arduino Uno (or compatible board)
-- Multiple push buttons
-- LEDs (x3 or more)
+- Arduino Uno (or compatible board)
+- push buttons x3
+- LEDs x3
 - Resistors (10kΩ for buttons, 220Ω for LEDs)
+- 7-segment display
 - Breadboard + jumper wires
 
 ---
@@ -75,14 +77,5 @@ clickTheRightBottonGame/
 
 > This project was created as part of a personal initiative to learn embedded systems through practical, hands-on work.  
 > Developed by **Lior Masas**, 2025.
-
----
-
-## ✅ Future Improvements
-
-- Add a score display (using an LCD or 7-segment display)
-- Implement multiple difficulty levels
-- Add sound or vibration feedback
-- Use interrupts for improved responsiveness
 
 ---
