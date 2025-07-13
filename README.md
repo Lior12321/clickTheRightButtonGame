@@ -32,11 +32,11 @@ See the game in action:
 
 ```
 clickTheRightBottonGame/
-├── game.ino 				      # Main Arduino sketch
+├── game.ino  # Main Arduino sketch
 ├── media/
 │ ├── board_and_wires.jpg 	# Breadboard image
-│ └── gameplay.mp4 			  # Demo video
-└── README.md 				      # Project documentation
+│ └── gameplay.mp4   # Demo video
+└── README.md   # Project documentation
 ```
 
 ---
