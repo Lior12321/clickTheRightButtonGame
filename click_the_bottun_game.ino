@@ -261,7 +261,7 @@ void loop() {
     case 10:
       digitalWrite(11, LOW);
       digitalWrite(12, LOW);
-      correctButton = leftButton;
+      correctButton = left`;
       break;
 
     case 11:
